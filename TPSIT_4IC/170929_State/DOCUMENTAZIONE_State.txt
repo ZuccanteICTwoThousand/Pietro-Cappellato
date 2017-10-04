@@ -1,0 +1,11 @@
+Documentazione lavoro
+
+Creazione della classe Watcher
+-creato costruttore con due istanze (Thread Data , Thread Network);
+-creati i metodi toString di entrambi i Thread;
+-creato metodo run, il quale esegue le operazioni di visualizzazione dei cambiamenti dei thread;
+
+#commento1: il seguente programma trova dei problemi quando si cerca di cambiare il delay del download simulato,
+ma non essendo richiesto l'ho ritenuto marginale, ipotizando che si trattasse di una valore fisso.
+
+#commento2: nell'ultimo update del sorgente ho creato un ciclo for dove cerco i cambiamenti di stato, funzionante con qualsiasi delay
