@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		* { box-sizing: border-box; }
+		body, html { margin: 0; }
+		body {
+			height: 100vh;
+			width: 100vw;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: #151313;
+		}
+		.container {
+			width: 25vw;
+			height: 50vh;
+			background-color: #fff;
+			display: flex;
+			flex-direction: column;
+		}
+		.container * {
+			font-family: 'Muli', sans-serif;
+		}
+		.image {
+			background-image: url(https://u.nya.is/fevjil.gif);
+			background-position: center;
+			background-size: cover;
+			width: 100%;
+			height: 40%;
+			transition: 0.2s;
+			position: relative;
+		}
+		.image:hover {
+			height: 50%;
+		}
+		.image * {
+			position: absolute;
+			bottom: 0;
+			left: 20px;
+			color: #fff;
+		    font-family: 'Lora', serif;
+		}
+		.tabs {
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: space-between;
+		}
+		.tabs li {
+			display: inline-block;
+			padding: 15px;
+			width: 100%;
+			border-bottom: thick solid #e8e8ee;
+			background-color: #e8e8ee;
+			transition: 0.2s;
+			text-align: center;
+		}
+		.tabs li:hover {
+			cursor: pointer;
+			border-bottom-color: purple;
+		}
+		.box-1 {
+			padding: 15px;
+		}
+		.search {
+
+		}
+		input {
+			align-self: flex-end;
+			margin: auto;
+			width: 100%;
+			border: none;
+			padding: 15px;
+			border-bottom: thick solid #e8e8ee;
+		}
+	</style>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Lora" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+
+
+<div class="image">
+</div>
+<ul class="tabs">
+	<li>General</li>
+	<li>Social</li>
+	<li>Code</li>
+	<li>Misc.</li>
+</ul>
+
+<div class="box-1">
+<a href="www.google.com">google</a>
+</div>
+
+
+
+<input type="" placeholder="search" name="">
+</div>
+</body>
+</html>

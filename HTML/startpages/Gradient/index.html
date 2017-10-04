@@ -1,0 +1,979 @@
+<!-- TESTED ONLY IN FIREFOX -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>~</title>
+	<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<style type="text/css">
+	html, body {
+		height: 100vh;
+		overflow: hidden;
+	}
+	* { box-sizing: border-box !important; outline: 0; }
+	.bg-image { /* terminal does strange things */
+	  background: url(https://u.nya.is/reyrtl.png) no-repeat center center fixed;
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  width: 100%;
+	  height: 100%;
+	  position: fixed;
+	  top: 0; left: 0;
+	  z-index: -999;
+	}
+	body {
+		display: flex;
+		align-items: center;
+	    justify-content: center;
+	    background-color: transparent;
+	}
+	.container {
+		display: flex;
+		flex-flow: column;
+		max-height: 70%;
+		height: 70%;
+		width: 50%;
+		background-color: transparent;
+	}
+	a, p, h1, h2, h3, h4, h5 {
+	    font-family: 'Raleway', sans-serif;
+	    margin: 0;
+	}
+	.top-bar {
+		color: #222;
+		width: 100%;
+		padding: 30px;
+		background-color: #BB9BB7
+	}
+    .top-bar,
+	.bar-1,
+	.bar-2,
+	.bar-3,
+	.bar-4 {
+		width: 100%;
+		height: auto;
+		display: flex;
+		justify-content: center;
+		flex-flow: column;
+		padding: 20px;
+		padding-left: 30px;
+		color: #fff;
+	}
+	.bar-1 { background-color: #616292; }
+	.bar-2 { background-color: #141418; }
+	.bar-3 { background-color: #151313;	}
+	.bar-4 { /* terminal */
+		height: 100%;
+		overflow: scroll;
+		justify-content: flex-start;
+		background-color: #151313;
+		opacity: 0.9;
+		padding: 30px;
+		color: #fff;
+	}
+	.bar-4 * {
+		font-size: 14px !important;
+		margin-right: 10px;
+	    font-family: 'Inconsolata', monospace;
+	}
+	i { margin-right: 10px; }
+
+    .top-bar:hover,
+    .bar-1:hover,
+    .bar-2:hover,
+    .bar-3:hover {
+        height: auto;
+    }
+    .top-bar:hover a,
+    .bar-1:hover a,
+    .bar-2:hover a,
+    .bar-3:hover a {
+        display: inline-block;
+    }
+
+	a {
+		margin: 5px;
+		margin-left: 0;
+		padding: 10px;
+		display: inline-block;
+		color: #333;
+		font-style: bold;
+		text-align: center;
+		text-decoration: none;
+		background-color: #fff;
+		transition: 0.2s
+	}
+	a:hover { box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); }
+	.hidden a:first-child { margin-top: 15px }
+	.hidden a { display: none; }
+	.inline-icon {
+		display: flex;
+		align-items: flex-end;
+	}
+	#terminal {
+		display: block;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		width: 100%;
+	}
+	.prompt {
+	    display: inline;
+		white-space: nowrap;
+		margin: 0;
+	}
+	#input, .input-old { display: inline; margin: 0 }
+	#input>span { max-width: 100%; }
+	pre.output { margin: 0; word-wrap: break-all; }
+	textarea {
+		border: 0;
+		background-color: transparent;
+		color: #fff;
+	}
+	</style>
+</head>
+<body>
+<img class="bg-image" id="bg-image">
+<div class="container">
+	<div class="top-bar">
+        <div class="inline-icon">
+            <i class="material-icons">favorite</i>
+            <h3>General</h3>
+        </div>
+        <div class="hidden">
+              <a href="https://www.youtube.com">YouTube</a>
+              <a href="https://google.co.uk">Google</a>
+              <a href="https://movw-0x16.cf">movw-0x16</a>
+              <a href="http://movw-space.cf">movw-space</a>
+              <a href="http://movw-space.cf/kanri">movw-kanri</a>
+              <a href="http://twentytwoo.github.io/mktt.ad">movw-ad</a>
+              <a href="http://twentytwoo.github.io/comfy-sounds">comfy-sounds</a>
+              <a href="http://ezgif.com/video-to-gif">VideotoGIF</a>
+              <a href="https://www.amazon.co.uk/">Amazon</a>
+              <a href="https://www.paypal.com/signin?country.x=GB&locale.x=en_GB">Paypal</a>
+              <a href="https://www.halifax-online.co.uk/personal/logon/login.jsp">Halifax</a>
+              <a href="http://www.ebay.co.uk/">eBay</a>
+        </div>
+    </div>
+	<div class="bar-1">
+		<div class="inline-icon">
+			<i class="material-icons">group</i>
+			<h3>Social</h3>
+		</div>
+		<div class="hidden">
+			<a href="https://store.steampowered.com/login/">Steam</a>
+			<a href="https://discordapp.com/login">Discord</a>
+			<a href="https://mail.protonmail.com/login">Protonmail</a>
+			<a href="https://inbox.google.com/">Inbox</a>
+			<a href="https://app.tutanota.de/#login">Tutanota</a>
+			<a href="https://facebook.com">Facebook</a>
+			<a href="https://web.skype.com/en/">Skype</a>
+		</div>
+	</div>
+	<div class="bar-2">
+		<div class="inline-icon">
+			<i class="material-icons">book</i>
+			<h3>College</h3>
+		</div>
+		<div class="hidden">
+			<a href="http://jlcproportal.leggott.ac.uk/">ProPortal</a>
+			<a href="https://login.microsoftonline.com/">Webmail</a>
+			<a href="http://gv.leggott.ac.uk/">Grapevine</a>
+			<a href="https://vle.leggott.ac.uk/">Moodle</a>
+			<a href="http://www.thestudentroom.co.uk/">TSR</a>
+			<a href="https://drive.google.com/drive/u/0/my-drive">Drive</a>
+			<a href="https://en.wikipedia.org/">Wikipedia</a>
+			<a href="https://www.cymath.com/">cymath</a>
+			<a href="https://www.mymaths.co.uk/">MyMaths</a>
+		</div>
+	</div>
+	<div class="bar-3">
+		<div class="inline-icon">
+			<i class="material-icons">code</i>
+			<h3>Code</h3>
+		</div>
+		<div class="hidden">
+			<a href="https://github.com">Github</a>
+			<a href="http://127.0.0.1:4000">127.0.0.1</a>
+			<a href="https://my.freenom.com/clientarea.php?action=domains">freenom.com</a>
+			<a href="https://app.netlify.com/">Netlify</a>
+			<a href="https://travis-ci.org/">Travis CI</a>
+			<a href="https://love2d.org/">L&#214;VE2D</a>
+			<a href="https://console.developers.google.com/">Google API</a>
+			<a href="https://analytics.google.com/">Google Analytics</a>
+			<a href="http://ionicons.com/">ionicons</a>
+			<a href="https://repl.it/languages/lua">Lua compiler</a>
+		</div>
+	</div><!-- terminal really doesn't like whitespace -->
+    <div class="bar-4"><div id="terminal"><p id="prompt" class="prompt"></p><pre id="input" contenteditable="true" autofocus="true" spellcheck="false"></pre></div><span id="filename"></span></div></div>
+<script type="text/javascript">
+//----------------------------------//
+// Credit for terminal script goes to:
+// https://xprmt.github.io/terminal/
+//----------------------------------//
+
+$("#terminal").click(function() {
+    if (!editing) $("#input").focus();
+})
+
+$(document).ready(function() {
+    init()
+})
+
+var userName;
+var userMachine;
+
+function getName() {
+    if (!localStorage.getItem('userName')) {
+        userName = "milky"
+    } else {
+        userName = localStorage.getItem('userName')
+    }
+    return userName;
+}
+
+function setName(name) {
+    if(name == "") {
+        print("usage: name [newname]")
+        return;
+    }
+    localStorage.setItem("userName", name)
+    userName = name
+    document.getElementById('prompt').innerHTML = getName() + '@' + getMachine() +':$&nbsp;'
+    print("Set userName to " + userName + ".")
+}
+
+function getMachine() {
+    if (!localStorage.getItem('userMachine')) {
+        userMachine = "angelcake-DebL"
+    } else {
+        userMachine = localStorage.getItem('userMachine')
+    }
+    return userMachine;
+}
+
+function setMachine(str) {
+    if(str == "") {
+        print("usage: machine [newname]")
+        return;
+    }
+    localStorage.setItem("userMachine", str)
+    userMachine = str
+    document.getElementById('prompt').innerHTML = getName() + '@' + getMachine() +':$&nbsp;'
+    print("Set userMachine to " + userMachine + ".")
+}
+
+function init() {
+    input = document.getElementById("input");
+    input.addEventListener("keydown", function(a){
+        var key = a.keyCode;
+        if(key == 13){ //enter
+            a.preventDefault();
+            handle(input.value);
+            inputIndex = 0;
+        } else if (key === 38) { //up arrow
+            document.getElementById("input").innerHTML = lastInputs[inputIndex];
+            inputIndex < lastInputs.length-1 ? inputIndex++ : true;
+        } else if (key === 40) { //down arrow
+            inputIndex > 0 ? inputIndex-- : true;
+            if (inputIndex > 0) {
+                inputIndex--;
+                document.getElementById("input").innerHTML = lastInputs[inputIndex];
+            } else {
+                document.getElementById("input").innerHTML = "";
+            }
+
+        } else if (key === 9) { //tab
+            if(!editing) {
+                a.preventDefault();
+                autocomplete(document.getElementById("input").innerHTML);
+            }
+        }
+    });
+    getName();
+    getMachine();
+    document.getElementById('prompt').innerHTML = getName() + '@' + getMachine() +':$&nbsp;'
+    $("#input").focus();
+}
+
+
+function handle(text) {
+    var input = $("#input").html();
+    $("#input").html("");
+    appendLastInput(input);
+    addInput(input);
+
+    if (input == "") return;
+
+    //intercepting the function here to search
+    if (searchString(input)) {
+        print("Searching for " + input.slice(0, input.length-3) + "...")
+        return
+    }
+
+    var firstWord = input;
+    firstWord = firstWord.split(" ")[0];
+    var args = input;
+    args = args.split(" ");
+    args.shift();
+
+    if (terminalFunctions.indexOf(firstWord) > -1) {
+        //call it as a function
+        window[firstWord](args);
+    } else {
+        //outside programs just need to have this function
+        if (hook(input.split(" ")[0], args) != true) {
+            print("Command " + "'" + input + "' not found. Type 'ls' for all commands.")
+        }
+    }
+
+    document.getElementById('input').scrollIntoView();
+}
+
+function appendLastInput(text) {
+    var inputBlobPre = '<p class="prompt">' + getName() + '@' + getMachine() +':$&nbsp;</p><pre class="input-old">'
+    var inputBlobSuf = '</pre></br>'
+    $(inputBlobPre + text + inputBlobSuf).insertBefore("#prompt");
+}
+
+function print(text) {
+
+    //you can use multiple args with commas if you're lazy
+    var finalText = ""
+    var args = arguments;
+
+    for (var a in args) {
+        finalText += args[a] + " "
+    }
+
+    var pre = '<pre class="output">'
+    var suf = '</pre>'
+
+    $(pre + finalText + suf).insertBefore("#prompt");
+}
+
+//for fancy rendering
+function fancyRender(text, color, size) {
+    var pre = '<pre class="output" style="'
+    if (color == undefined) {
+        color = "inherit"
+    }
+    if (size == undefined) {
+        size = "11"
+    }
+    pre += "color:" + color + "; "
+    pre += "font-size:" + size + 'pt;"'
+
+    pre += ">"
+    var suf = '</pre>'
+    $(pre + text + suf).insertBefore("#prompt");
+}
+
+//====================  TERMINAL FUNCTIONS  ========================
+var terminalFunctions = [
+    "about",
+    "clear",
+    "echo",
+    "help",
+    "history",
+    "ls",
+    "name",
+    "machine",
+    "clear", // previously "re"
+    "render",
+    'search'];
+
+function clear(input) {
+    var data = '<p id="prompt" class="prompt">' + getName() + '@' + getMachine() + ':$&nbsp;</p><pre id="input" contenteditable="true" autofocus="true" spellcheck="false"></pre>'
+    document.getElementById("terminal").innerHTML = data;
+    init();
+}
+
+function about(input) {
+    print("Features include tab autocompletion, a file editor, custom web searches and history, searchable with arrow keys.")
+}
+
+function history(input) {
+    //print in descending order, without printing the history command
+    for (var h=lastInputs.length-1; h>=0; h--) print(lastInputs[h]);
+}
+
+function help(input) {
+    //add some kind of help for various functions (like rendering)
+    fancyRender("general", "lightgray")
+    var printStr = ""
+    for (var i=0; i<terminalFunctions.length; i++) {
+        printStr +=  "> " +(terminalFunctions[i]) + " ";
+    }
+    print(printStr)
+
+    fancyRender("commands", "lightgray")
+    printStr = ""
+        if (typeof hookCommands != "undefined" && hookCommands.length > 0) {
+        for (var i=0; i<hookCommands.length; i++) {
+            printStr +=  "> " +(hookCommands[i]) + " ";
+        }
+        print(printStr)
+    }
+
+    printStr = ""
+    if (typeof bookmarks != "undefined" && bookmarks.length > 0) {
+        fancyRender("bookmarks", "lightgray")
+        for (var i=0; i<bookmarks.length; i++) {
+            printStr +=  "> " +(bookmarks[i][0]) + " ";
+        }
+    }
+    print(printStr)
+
+    printStr = ""
+    if (typeof fileFunctions != "undefined" && fileFunctions.length > 0) {
+        fancyRender("i/o", "lightgray")
+        for (var i=0; i<fileFunctions.length; i++) {
+            printStr +=  "> " +(fileFunctions[i]) + " ";
+        }
+    }
+    print(printStr)
+
+    printStr = ""
+    if (!$.isEmptyObject(files)) {
+        fancyRender("files", "lightgray")
+        for(var prop in files) {
+            printStr +=  "> " +(prop) + " "
+        }
+        print(printStr)
+    }
+}
+
+function ls(input) {
+    //horrible. converts input to a string by adding an empty string.
+    if(input.slice(input.length - 2, input.length) + "" === "-b") {
+        fancyRender("bookmarks", "lightgray")
+        if (typeof bookmarks != "undefined" && bookmarks.length > 0) {
+            for (var i=0; i<bookmarks.length; i++) {
+                print(bookmarks[i][0]);
+            }
+        }
+        return;
+    }
+    if(input.slice(input.length - 2, input.length) + "" === "-c") {
+        fancyRender("commands", "lightgray")
+        if (typeof hookCommands != "undefined" && hookCommands.length > 0) {
+            for (var i=0; i<hookCommands.length; i++) {
+                print(hookCommands[i]);
+            }
+        }
+        return;
+    }
+
+    if(input.slice(input.length - 2, input.length) + "" === "-f") {
+        if ($.isEmptyObject(files)) {
+            print("No files here.")
+            return
+        }
+        fancyRender("files", "lightgray")
+        for(var prop in files) {
+            print(prop)
+        }
+        return;
+    }
+    help(input)
+}
+
+function echo(args) {
+    if (args.length == 0) {
+        print("usage: echo [text]")
+        return
+    }
+    var printStr = args.join(" ")
+    //greentexting
+    if(printStr.indexOf("&gt;") === 0) {
+        printStr = cssColor(printStr, "#789922")
+    }
+    print(printStr);
+}
+
+function re(s) {
+    location.reload();
+}
+
+function render(args) {
+    var usage = "usage: render [text]; [color] [size]"
+    if (args.length === 0) {
+        print(usage)
+        return
+    }
+    args = args.join(" ").split("; ")
+    if (args.length === 1) {
+        print(usage)
+    }
+    var cssVars = args[1].split(" ")
+    if (args.length != 2) {
+        print(usage)
+        return
+    }
+    fancyRender(args[0], cssVars[0], cssVars[1]);
+}
+
+function search(s) {
+    print("Usage: [query] -x")
+    print("x is a switch for: ")
+    print("a:   amazon")
+    print("m:   wolfram alpha")
+    print("v:   vimeo")
+    print("w:   wikipedia")
+    print("y:   youtube")
+    print("g:   google")
+}
+
+//====================  HISTORY  ===================================
+//keep duplicates from being added, change "" to &nbsp;
+var lastInputs = []
+var inputIndex = 0;
+
+if (localStorage.getItem("history")) {
+    lastInputs = JSON.parse(localStorage.getItem("history"))
+}
+
+//adds to the beginning of the array
+function addInput(str) {
+    if (str === "" || /^[ ]+$/.test(str)) {
+        return;
+    }
+    if (lastInputs[0] === str){return};
+    if (lastInputs.length > 0) {
+        if (lastInputs[lastInputs.length - 1] != str) lastInputs.unshift(str)
+    } else lastInputs.unshift(str);
+    localStorage.setItem("history", JSON.stringify(lastInputs))
+}
+
+//====================  TAB AUTO-COMPLETION ========================
+function autocomplete(string) {
+    //first search term commands, then maybe hooked commands
+    for (var i=0; i<terminalFunctions.length; i++) {
+        if (terminalFunctions[i].indexOf(string) === 0) {
+            document.getElementById("input").innerHTML = terminalFunctions[i];
+            return
+        }
+    }
+    //if hook commands exist
+    if (typeof hookCommands != "undefined" && hookCommands.length > 0   ) {
+        for (var i=0; i<hookCommands.length; i++) {
+            if (hookCommands[i].indexOf(string) === 0) {
+                document.getElementById("input").innerHTML = hookCommands[i];
+                return
+            }
+        }
+    }
+    if (typeof bookmarks != "undefined" && bookmarks.length > 0) {
+        for (var i=0; i<bookmarks.length; i++) {
+            if(bookmarks[i][0].indexOf(string) === 0) {
+                document.getElementById("input").innerHTML = bookmarks[i][0];
+                return
+            }
+        }
+    }
+    if (typeof fileFunctions != "undefined" && fileFunctions.length > 0   ) {
+        for (var i=0; i<fileFunctions.length; i++) {
+            if (fileFunctions[i].indexOf(string) === 0) {
+                document.getElementById("input").innerHTML = fileFunctions[i];
+                return
+            }
+        }
+    }
+	//autocompleting based on filenames
+    console.log(string)
+	var tempCommand = string.split(" ")[0];
+	if (fileFunctions.indexOf(tempCommand) >= 0
+			&& string.split(" ").length > 1) {
+		var beginName = string.split(" ")[1];
+		Object.keys(files).forEach(function(key, index) {
+			if (key.indexOf(beginName) === 0)	{
+                document.getElementById("input").innerHTML = tempCommand + " " + key
+                return
+            }
+		})
+	}
+}
+
+//====================  SEARCHING ==================================
+function searchString(query) {
+    var original = query;
+    var modifier = query.substr(query.length-2);
+    query = query.slice(0, query.length-3); //remove " -x"
+    switch (modifier) {
+        case "-a":
+            window.location = "http://www.smile.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Daps&field-keywords=" +
+            query.replace(" ", "+");
+            return true;
+        case "-y":
+            window.location =
+                "https://www.youtube.com/results?search_query=" +
+                query.replace(" ", "+");
+            return true;
+        case "-w":
+            window.location =
+                "https://en.wikipedia.org/w/index.php?search=" +
+                query.replace(" ", "%20");
+            return true;
+    	case "-m":
+    	    window.location =
+    		"http://www.wolframalpha.com/input/?i=" +
+    		query.replace("+", "%2B");
+            return true;
+        case "-v":
+            window.location =
+            "https://vimeo.com/search?q=" +
+            query.replace(" ", "+");
+            return true;
+        case "-g":
+            window.location =
+                "https://www.google.co.uk/search?q=" +
+                query.replace(" ", "+");
+            return true;
+
+    }
+    return false;
+}
+
+//====================  HELPER FUNCTIONS  ==========================
+function randRange(n) {
+  return Math.ceil(Math.random() * n);
+}
+
+function rollDie(args) {
+    print(randRange(Number(args.substr(1))));
+}
+
+//returns a span with the color of a string, good for chaining with print()
+function cssColor(string, colorName) {
+    return "<span style='color:" + colorName + "'>" + string + "</span>"
+}
+//initializing commands
+$(document).ready(function() {weather()});
+
+function hook(str, args) {
+
+    if (str[0] == '~') {
+        eval(str.slice(1, str.length))
+        return true
+    }
+
+    //check for a subreddit
+    if (str.slice(0,3) === "/r/" || str.slice(0,3) === "/u/") {
+        loadURL("https://www.reddit.com" + str)
+        return true
+    }
+
+    //check for a 4chan board
+    if(str[0] === "/" && (
+        str[str.length-1] === "/" || str.length < 5)) {
+        //then it's not guaranteed to be a 4chan board, but let's try it anyway
+        //everything but the slash at the beginning
+        loadURL("https://boards.4chan.org/" + str.substr(1))
+        return true
+    }
+
+    if (hookCommands.indexOf(str) > -1) {
+        //call it as a function
+        //args are an array
+        window[str](args.join(" "));
+        return true
+    }
+
+    if (fileFunctions.indexOf(str) > -1) {
+        //call it as a function
+        //args are an array
+        window[str](args.join(" "));
+        return true
+    }
+
+    //and now check for bookmarks
+    if (typeof bookmarks != "undefined" && bookmarks.length > 0) {
+        for (var i=0; i<bookmarks.length; i++) {
+            if(bookmarks[i][0] === str) {
+                loadURL(bookmarks[i][1])
+                return true;
+            }
+        }
+
+    }
+
+    //regex for dice matching, either straight or with a modifier (+x)
+    if (/^[0-9]*[d][0-9]+$/.test(str)) {
+
+        var tempArr = str.split('d')
+        var numDice = Number(tempArr[0])
+        if (numDice === 0) numDice = 1
+        var numSides = Number(tempArr[1])
+        var output = ""
+        for (var i=0; i<numDice; i++) {
+            var outcome = randRange(numSides)
+            //highlight max rolls
+            if (outcome === numSides) outcome = cssColor(outcome, "#b0b0b0")
+            output += outcome + " "
+        }
+        print(output);
+        return true
+    } else if (/^[0-9]*[d][0-9]+[+][0-9]+$/.test(str)) {
+        var regex = /[+][0-9]+/.exec(str)[0];
+        modifier = Number(regex.slice(1)) //remove the + to get the modifier
+        console.log(modifier)
+
+        var tempArr = str.split('d')
+        var numDice = Number(tempArr[0])
+        if (numDice === 0) numDice = 1
+        var numSides = Number(tempArr[1].split("+")[0]) //gross, but works
+        var output = ""
+        for (var i=0; i<numDice; i++) {
+            var outcome = randRange(numSides)
+            var temp = outcome + modifier
+            //highlight max rolls
+            if (outcome === numSides) temp = cssColor(temp, "#b0b0b0")
+            output += temp + " "
+        }
+        print(output);
+        return true
+    }
+
+}
+
+//==================== CHALLENGE COMMANDS ==========================
+var hookCommands = [
+    'chan',
+    'date',
+    'dice',
+    'reddit',
+    'time',
+    'weather',
+];
+
+var bookmarks = [
+    ['tuta', 'https://tutanota.de'],
+    ['yt', 'https://youtube.com'],
+    ['jlc', 'https://portal.leggott.ac.uk/']
+//    ['', '']
+]
+
+function name(str) {
+    setName(str)
+}
+
+function machine(str) {
+    setMachine(str)
+}
+
+function k_to_f(kelvin) {
+	return ((9 / 5) * (kelvin - 273) + 32).toFixed(0);
+}
+
+function weather() {
+    //this might throw a mixed content error, but running it from a local file works
+    var json_url = "http://api.openweathermap.org/data/2.5/weather?q=Morningside+Heights,ny&appid=6e131a2916d5d45d8367b72a4675be0a";
+    var city;
+    var temp_curr;
+    var temp_low;
+    var temp_high;
+    var description;
+    var weatherCode;
+    var humidity;
+
+    $.when(
+        $.getJSON(json_url)
+    ).done(function(json_obj) {
+		city = json_obj["name"];
+		temp_curr = k_to_f(json_obj["main"]["temp"]);
+		temp_low = k_to_f(json_obj["main"]["temp_min"]);
+		temp_high = k_to_f(json_obj["main"]["temp_max"]);
+		description = json_obj.weather[0].description;
+        weatherCode = Number(json_obj["weather"][0]["id"]);
+        humidity = Number(json_obj["main"]["humidity"])
+        var disgusting = (weatherCode > 500
+            && weatherCode < 800
+            || Number(temp_low) < 30
+            || Number(temp_high) > 95
+            || humidity > 75);
+        description = description.charAt(0).toUpperCase() + description.slice(1)
+        var weatherString = "It's " + temp_curr + "&deg; out. " + description + ". "
+        disgusting ? weatherString += "Comfy." : weatherString += "Too hot :("
+        print(weatherString)
+	})
+}
+
+function loadURL(url) {
+    print("Loading " + url + "...")
+    window.location = url
+}
+
+function time(str) {
+    var today = new Date();
+    var h = today.getHours();
+    //america
+    if (h >= 13) {
+        h -= 12;
+    } else if (h < 1) {
+        h += 12;
+    }
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    print(h + ":" + m + ":" + s);
+}
+
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+
+function date(s) {
+    var monthNames = [
+      "January", "February", "March",
+      "April", "May", "June", "July",
+      "August", "September", "October",
+      "November", "December"
+    ];
+    var days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+    var date = new Date();
+    var day = date.getDate();
+    var weekday = date.getDay();
+    var monthIndex = date.getMonth();
+    var year = date.getFullYear();
+
+    print(days[weekday] + ", " + monthNames[monthIndex] + " " + day)
+}
+
+function reddit(s) {
+    print("Usage: /r/[subreddit] or /u/[user]")
+}
+
+function chan(s) {
+    print("Usage: /[board] or /[board]/")
+}
+
+function dice(s) {
+    print("Usage: [number]d[number]+[modifier]")
+}
+var editBlob = '<div id="editWrapper"><textarea id="editArea" rows="40" cols="80" spellcheck="false"></textarea></div>'
+var editing = false;
+var currentFileName = ""
+var files = {}
+var fileFunctions = [
+    'edit',
+    'close',
+    'save',
+    'rm',
+    'cat',
+]
+
+//files are stored as an object with keys (filenames) and values (innerHTML)
+
+//add some grabbing from local storage here, package files into a json dict
+//and then get 'em
+if (localStorage.getItem("textFiles")) {
+    files = JSON.parse(localStorage.getItem("textFiles"))
+}
+
+//add an escape listener to get back to the input line
+$(document).keyup(function(e) {
+     if (e.keyCode == 27 && editing) { // escape
+        document.getElementById("input").focus();
+    }
+});
+
+function edit(fileName) {
+    //make sure there's no window open already
+    if (editing){
+        print("Can't open two files at once, friend.")
+        return
+    }
+    //make sure there's a filename
+    if (fileName === "") {
+        print("Usage: edit [filename]")
+        return
+    }
+
+    //open the editor window
+    $("#terminal").append(editBlob);
+	$("#filename").html(fileName)
+    currentFileName = fileName;
+    //open it if it exists
+    if (files[fileName]) {
+        document.getElementById("editArea").value = files[fileName]
+    }
+    document.getElementById("editArea").focus();
+    editing = true;
+    files[currentFileName] = editArea.value;
+    localStorage.setItem("textFiles", JSON.stringify(files))
+}
+
+function save() {
+    if(!editing) {
+        print("No file open to save.")
+        return
+    }
+    files[currentFileName] = editArea.value;
+    localStorage.setItem("textFiles", JSON.stringify(files))
+    print(currentFileName + " saved.")
+}
+
+function close() {
+    var editArea = document.getElementById("editArea");
+    if (!editing) {
+        print("No file open.")
+        return
+    }
+    editing = false;
+    //save the file
+    console.log(editArea.value)
+    files[currentFileName] = editArea.value;
+    localStorage.setItem("textFiles", JSON.stringify(files))
+    $("#editWrapper").remove();
+	$("#filename").html("");
+}
+
+function rm(fileName) {
+    if (fileName === "") {
+        print("Usage: rm [filename]")
+        return
+    }
+
+    if (files.hasOwnProperty(fileName)) {
+        delete files[fileName]
+        print(fileName + " deleted.")
+        if (editing) {
+            $("#editWrapper").remove()
+			$("#filename").html("");
+            editing = false;
+        }
+    } else {
+        print(fileName + " doesn't exist.")
+    }
+    localStorage.setItem("textFiles", JSON.stringify(files))
+}
+
+function cat(fileName) {
+    if (fileName === "") {
+        print("Usage: cat [filename]")
+        return
+    }
+
+    if (files.hasOwnProperty(fileName)) {
+        print(files[fileName])
+        return
+    }
+
+    if (window.hasOwnProperty(fileName)) {
+        print(window[fileName])
+        return
+    }
+    print("No file or function named '" + fileName + "'.")
+}
+
+</script>
+</body>
+</html>

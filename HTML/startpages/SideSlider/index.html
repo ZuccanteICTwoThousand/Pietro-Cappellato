@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+      /* normal padding: 30px;
+      margins / paddings must be a multiple of 3,
+      i.e. 15, 30, 60, 90px */
+      /* {border: 1px solid black}/**/
+      body {
+        background-image: url("http://movw-0x16.cf/ftp/www/background.jpg");
+        background-position:center center;
+        background-attachment: fixed;
+        background-repeat:no-repeat;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        font-family: 'Roboto', sans-serif;
+      }
+      .box {
+        background-color: #fff;
+        padding: 10px 20px 10px 20px;
+        display: inline-block;
+        top: 20%;
+        margin-left: 30px;
+        position: fixed;
+        width: 270px;
+      }
+      .box > * { color: #000; }
+      h1 {
+        line-height: 0.1;
+        font-size: 10vh;
+      }
+      h2 {
+        line-height: 0.1; font-size: 40px;
+      }
+      #sidebar {
+        position: fixed;
+        top: 20%;
+        -webkit-transition: all 0.5s;
+        transition: all 0.5s;
+      }
+      #sidebar[data-position="right"] { right: -60vw; } /* 60vw controls slideout width */
+      #sidebar[data-position="right"].open {
+        -webkit-transform: translate3d(-60vw, 0, 0);
+        transform: translate3d(-60vw, 0, 0);
+      }
+      #sidebar[data-position="right"] .icons { float: left; }
+      #sidebar[data-position="left"] { left: -60vw; }
+      #sidebar[data-position="left"].open {
+        -webkit-transform: translate3d(60vw, 0, 0);
+        transform: translate3d(60vw, 0, 0);
+      }
+      #sidebar[data-position="left"] .icons { float: right; }
+      #sidebar .icons {
+        font-size: 50px;
+        line-height: 0;
+        float: left;
+        text-align: center; /* center icons */
+      }
+      #sidebar .icon { padding: 15px; }
+      #sidebar .icons .icon {
+        background-color: #fff; /* unfocused icon bg */
+        margin-bottom: 5px;
+        transition: 0.2s;
+      }
+      #sidebar .icons .icon:hover { background-color: #C0A0D0; }
+      #sidebar .icons .icon:last-child { margin-bottom: 0px; }
+      #sidebar .icons .icon.active { background-color: #C0A0D0; }
+      #sidebar .icons .icon span {
+        margin: 0.34em;
+        color: #fff;
+        font-size: 1.5em;
+      }
+      #sidebar .contents {
+        width: 60vw;
+        height: 505px;
+        float: left;
+        background-color: #C0A0D0;
+        overflow-y: auto;
+        overflow-x: hidden;
+      }
+      #sidebar .contents .content {
+        padding: 5px 25px 25px 25px;
+        color: white;
+      }
+      #sidebar .contents .content.hide { display: none; }
+      #sidebar .contents .content.show { display: block; }
+      #sidebar .contents .content h2 { color: white; }
+      #sidebar .contents .content ul {
+        list-style-type: none;
+        padding: 0;
+        margin-top: 10px;
+      }
+      #sidebar .contents .content ul li { margin-bottom: 15px; }
+      #sidebar .contents .content ul li:last-child { margin-bottom: 0px; }
+      #sidebar .contents .content img { max-width: 100%; }
+      .content-items {}
+      .content-items li {
+        background-color: #fff;
+        padding: 15px;
+        padding-bottom: 10px; /* make up for border */
+        text-align: center;
+        display: inline-block;
+        margin: 3px 3px 3px 0px !important;
+        width: 20%;
+      }
+      .content-items a li {
+        font-size: 20px;
+        color: #000;
+        display: inline-block;
+        border-bottom: 5px solid transparent;
+        transition: 0.5s ease;
+        white-space: nowrap;
+        height: 25px;
+      }
+      .content-items li:hover {
+          border-bottom: 5px solid lightgrey;
+      }
+      hr {height: 5px; background-color: #E8E8EE; border: none;}
+      textarea { width: 98%; resize: none; height: 380px; padding: 10px; border: none; margin-top: 3px}
+    </style>
+    <!-- require files -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+            integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  </head>
+  <body>
+  <div class="box">
+    <h2>Ohayo~</h2>
+    <hr>
+    <p>Things are looking moody today.</p>
+  </div>
+    <div id="sidebar" data-position="right">
+      <div class="icons">
+        <div class="icon" data-content="content1"><i class="ion-grid" aria-hidden="true"></i></div>
+        <div class="icon" data-content="content2"><i class="ion-android-chat" aria-hidden="true"></i></div>
+        <div class="icon" data-content="content3"><i class="ion-university" aria-hidden="true"></i></div>
+        <div class="icon" data-content="content4"><i class="ion-code-working" aria-hidden="true"></i></div>
+        <div class="icon" data-content="content5"><i class="ion-android-contract" aria-hidden="true"></i></div>
+        <div class="icon" data-content="content6"><i class="ion-compose" aria-hidden="true"></i></div>
+      </div>
+      <div class="contents">
+      <div class="content hide" data-content="content1">
+          <h2>Home</h2>
+          <ul class="content-items">
+              <a href="https://www.youtube.com"><li>YouTube</li></a>
+              <a href="https://google.co.uk"><li>Google</li></a>
+              <a href="https://movw-0x16.cf"><li>movw-0x16</li></a>
+              <a href="http://movw-space.cf"><li>movw-space</li></a>
+              <a href="http://movw-space.cf/kanri"><li>movw-kanri</li></a>
+              <a href="http://twentytwoo.github.io/mktt.ad"><li>movw-ad</li></a>
+              <a href="http://twentytwoo.github.io/comfy-sounds"><li>comfy-sounds</li></a>
+              <a href="http://ezgif.com/video-to-gif"><li>VideotoGIF</li></a>
+              <a href="https://www.amazon.co.uk/"><li>Amazon</li></a>
+              <a href="https://www.paypal.com/signin?country.x=GB&locale.x=en_GB"><li>Paypal</li></a>
+              <a href="https://www.halifax-online.co.uk/personal/logon/login.jsp"><li>Halifax</li></a>
+              <a href="http://www.ebay.co.uk/"><li>eBay</li></a>
+              <!-- <a href=""><li></li></a> -->
+          </ul>
+        </div>
+        <div class="content hide" data-content="content2">
+          <h2>Social</h2>
+          <ul class="content-items">
+              <a href="https://store.steampowered.com/login/"><li>Steam</li></a>
+              <a href="https://discordapp.com/login"><li>Discord</li></a>
+              <a href="https://mail.protonmail.com/login"><li>Protonmail</li></a>
+              <a href="https://inbox.google.com/"><li>Inbox</li></a>
+              <a href="https://app.tutanota.de/#login"><li>Tutanota</li></a>
+              <a href="https://facebook.com"><li>Facebook</li></a>
+              <a href="https://web.skype.com/en/"><li>Skype</li></a>
+          </ul>
+        </div>
+        <div class="content hide" data-content="content3">
+          <h2>College</h2>
+          <ul class="content-items">
+              <a href="http://jlcproportal.leggott.ac.uk/"><li>ProPortal</li></a>
+              <a href="https://login.microsoftonline.com/"><li>Webmail</li></a>
+              <a href="http://gv.leggott.ac.uk/"><li>Grapevine</li></a>
+              <a href="https://vle.leggott.ac.uk/"><li>Moodle</li></a>
+              <a href="http://www.thestudentroom.co.uk/"><li>TSR</li></a>
+              <a href="https://drive.google.com/drive/u/0/my-drive"><li>Drive</li></a>
+              <a href="https://en.wikipedia.org/"><li>Wikipedia</li></a>
+              <a href="https://www.cymath.com/"><li>cymath</li></a>
+              <a href="https://www.mymaths.co.uk/"><li>MyMaths</li></a>
+          </ul>
+        </div>
+        <div class="content hide" data-content="content4">
+          <h2>Code</h2>
+          <ul class="content-items">
+              <a href="https://github.com"><li>Github</li></a>
+              <a href="http://127.0.0.1:4000"><li>127.0.0.1</li></a>
+              <a href="https://my.freenom.com/clientarea.php?action=domains"><li>freenom.com</li></a>
+              <a href="https://app.netlify.com/"><li>Netlify</li></a>
+              <a href="https://travis-ci.org/"><li>Travis CI</li></a>
+              <a href="https://love2d.org/"><li>L&#214;VE2D</li></a>
+              <a href="https://console.developers.google.com/"><li>Google API</li></a>
+              <a href="https://analytics.google.com/"><li>Google Analytics</li></a>
+              <a href="http://ionicons.com/"><li>ionicons</li></a>
+              <a href="https://repl.it/languages/lua"><li>Lua compiler</li></a>
+          </ul>
+        </div>
+        <div class="content hide" data-content="content5">
+          <h2>4chan</h2>
+          <ul class="content-items">
+              <a href="http://boards.4chan.org/g/"><li>/g/</li></a>
+              <a href="http://boards.4chan.org/mu/"><li>/mu/</li></a>
+              <a href="http://boards.4chan.org/lgbt/"><li>/lgbt/</li></a>
+              <a href="http://boards.4chan.org/r9k/"><li>/r9k/</li></a>
+              <a href="http://boards.4chan.org/pol/"><li>/pol/</li></a>
+              <a href="http://boards.4chan.org/lit/"><li>/lit/</li></a>
+              <a href="http://boards.4chan.org/sci/"><li>/sci/</li></a>
+              <a href="http://boards.4chan.org/gif/"><li>/gif/</li></a>
+              <a href="http://boards.4chan.org/w/"><li>/w/</li></a>
+              <a href="http://boards.4chan.org/wg/"><li>/wg/</li></a>
+          </ul>
+        </div>
+        <div class="content hide" data-content="content6">
+          <h2>Notes</h2>
+          <ul class="content-items">
+              <textarea id="remember"></textarea>
+          </ul>
+        </div>
+      </div>
+     </div>
+  </body>
+<script>
+$(document).ready(function() {
+    $("#sidebar").mouseenter(function(event) {
+        $sidebar.mouseenter(event);
+    }).mouseleave(function() {
+        $sidebar.mouseleave();
+    });
+    $('#sidebar').mouseover(function(event) {
+        $sidebar.mouseover(event);
+    });
+    $('#sidebar > .icons > .icon').on('mouseover touchstart', function(event) {
+        if ($sidebar.visible) {
+            $sidebar.switchContent(this);
+        }
+        if (event.type === 'touchstart') {
+            $sidebar.mouseenter(event);
+        }
+    });
+    var $sidebar = $.extend($('#sidebar'), {
+        timeoutId: null,
+        visible: false,
+        delay: 100,
+        delayLeave: 500,
+        show: function() {
+            if (!$(this).hasClass('open')) {
+                $(this).addClass('open');
+                this.visible = true;
+            }
+        },
+        hide: function() {
+            if ($(this).hasClass('open')) {
+                $(this).removeClass('open');
+                var sidebar = this;
+                window.setTimeout(function() {
+                    sidebar.visible = false;
+                    sidebar.reset();
+                }, this.getTransitionDurationMs());
+            }
+        },
+        mouseover: function(event) {
+            var relTarg = event.relatedTarget || event.fromElement;
+            if ($(relTarg).attr('id') === 'sidebar' && !this.visible) {
+                $sidebar.mouseenter(event);
+            }
+        },
+        mouseenter: function(event) {
+            var $icon = null;
+            if ($(event.target).hasClass('icon')) {
+                $icon = event.target;
+            } else if ($(event.target).parent('.icon').length) {
+                $icon = $(event.target).parent('.icon');
+            }
+            if ($icon !== null) {
+                if (!this.timeoutId) {
+                    var sidebar = this;
+                    this.timeoutId = window.setTimeout(function() {
+                        sidebar.timeoutId = null;
+                        sidebar.reset();
+                        sidebar.switchContent($icon);
+                        sidebar.show();
+                    }, this.delay);
+                }
+            }
+        },
+        mouseleave: function() {
+            if (this.timeoutId) {
+                window.clearTimeout(this.timeoutId);
+                this.timeoutId = null;
+            } else {
+                this.hide();
+            }
+        },
+        reset: function() {
+            var $icons = $(this).find('.icon');
+            var $contents = $(this).find('.content');
+            $.each($icons, function(key, icon) {
+                if ($(icon).hasClass('active')) {
+                    $(icon).removeClass('active');
+                }
+            });
+            $.each($contents, function(key, content) {
+                if ($(content).hasClass('show')) {
+                    $(content).removeClass('show');
+                }
+                if (!$(content).hasClass('hide')) {
+                    $(content).addClass('hide');
+                }
+            });
+        },
+        switchContent: function(icon) {
+            this.reset();
+            $(icon).addClass('active');
+            $(icon).parents('#sidebar').find('div[data-content="' + $(icon).data('content') + '"]').addClass('show');
+        },
+        getTransitionDurationMs: function() {
+            var cssSec = $(this).css('transition-duration');
+            var sec = cssSec.substr(0, (cssSec.length - 1));
+            var ms = sec * 1000;
+            return ms;
+        },
+    });
+});
+</script>
+</html>

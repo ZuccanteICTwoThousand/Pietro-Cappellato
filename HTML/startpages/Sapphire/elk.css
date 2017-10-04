@@ -1,0 +1,411 @@
+/*
+* elk-css mk.2-01
+* Copyright 2017, May W.
+* github.com/twentytwoo/elk-css
+* 30/05/2017
+*/
+/* TOC
+------------------------------
+- Variables
+- Tags
+- Grid
+- Helpful classes
+- Internal positioning
+- Font sizing
+- Breakpoints
+- Responsive sizes
+*/
+/* Variables
+------------------------------*/
+@import url("https://fonts.googleapis.com/css?family=Inconsolata");
+/* Tags
+------------------------------*/
+* {
+  box-sizing: border-box; }
+
+html {
+  font-weight: 300;
+  font-size: 1rem; }
+
+html, body {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Helvetica";
+  min-height: 100vh;
+  display: flex;
+  justify-content: center; }
+
+a {
+  color: #333;
+  outline: 0;
+  /* no dotted outline */
+  outline: 0;
+  /* remove dotted border */ }
+  a:hover {
+    color: #03A9F4; }
+
+img {
+  max-width: 100%;
+  max-height: 100%; }
+
+pre, code {
+  margin: 0;
+  padding: 2px;
+  border-radius: 0;
+  border: 1px solid #e8e8ee;
+  font-family: "Inconsolata", monospace;
+  font-size: 14px; }
+
+pre code {
+  border: none;
+  padding: 0.5rem; }
+
+hr {
+  border: 0;
+  border-top: 1px solid #e8e8ee; }
+
+button, input {
+  border: 1px solid #E8E8EE;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  outline: 0;
+  /* remove dotted border */ }
+
+button:focus {
+  outline: none; }
+
+ul {
+  list-style-type: circle; }
+
+/* Grid
+------------------------------*/
+.container {
+  width: 80vw;
+  max-width: 1200px;
+  padding: 0.5rem;
+  margin: 0.5rem;
+  position: relative; }
+
+.column .full,
+.column .half,
+.column .third,
+.column .twothirds,
+.column .col-1,
+.column .col-2,
+.column .col-3,
+.column .col-4,
+.column .col-5,
+.column .col-6,
+.column .col-7,
+.column .col-8,
+.column .col-9,
+.column .col-10,
+.column .col-11,
+.column .col-12,
+.row .full,
+.row .half,
+.row .third,
+.row .twothirds,
+.row .col-1,
+.row .col-2,
+.row .col-3,
+.row .col-4,
+.row .col-5,
+.row .col-6,
+.row .col-7,
+.row .col-8,
+.row .col-9,
+.row .col-10,
+.row .col-11,
+.row .col-12 {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem; }
+  .column .full *:last-child,
+  .column .half *:last-child,
+  .column .third *:last-child,
+  .column .twothirds *:last-child,
+  .column .col-1 *:last-child,
+  .column .col-2 *:last-child,
+  .column .col-3 *:last-child,
+  .column .col-4 *:last-child,
+  .column .col-5 *:last-child,
+  .column .col-6 *:last-child,
+  .column .col-7 *:last-child,
+  .column .col-8 *:last-child,
+  .column .col-9 *:last-child,
+  .column .col-10 *:last-child,
+  .column .col-11 *:last-child,
+  .column .col-12 *:last-child,
+  .row .full *:last-child,
+  .row .half *:last-child,
+  .row .third *:last-child,
+  .row .twothirds *:last-child,
+  .row .col-1 *:last-child,
+  .row .col-2 *:last-child,
+  .row .col-3 *:last-child,
+  .row .col-4 *:last-child,
+  .row .col-5 *:last-child,
+  .row .col-6 *:last-child,
+  .row .col-7 *:last-child,
+  .row .col-8 *:last-child,
+  .row .col-9 *:last-child,
+  .row .col-10 *:last-child,
+  .row .col-11 *:last-child,
+  .row .col-12 *:last-child {
+    margin-bottom: 0; }
+.column *:last-child,
+.row *:last-child {
+  margin-right: 0; }
+.column .column *,
+.row .column * {
+  margin-right: 0; }
+
+.column {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%; }
+
+.row {
+  display: flex;
+  align-content: center;
+  align-items: flex-start;
+  flex-direction: row;
+  position: relative;
+  justify-content: flex-start; }
+  .row:last-child {
+    margin-right: 0 !important; }
+
+.half {
+  display: inline-block;
+  width: 50%; }
+
+.third {
+  flex: 0 0 calc((100% - 1em)/3);
+  position: relative; }
+
+.twothirds {
+  flex: 1 0 calc((100% - 1em)/3);
+  max-width: 66.6%;
+  /* insurance :^); */
+  position: relative; }
+
+.full {
+  flex-grow: 1; }
+
+@media (max-width: 650px) {
+  .hob {
+    display: none !important; }
+
+  .row,
+  .column,
+  .half,
+  .third,
+  .twothirds,
+  .col-1,
+  .col-2,
+  .col-3,
+  .col-4,
+  .col-5,
+  .col-6,
+  .col-7,
+  .col-8,
+  .col-9,
+  .col-10,
+  .col-11,
+  .col-12 {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    margin-right: 0 !important; } }
+@media (max-width: 650px) {
+  .container {
+    width: 100vw !important;
+    padding: 1rem; } }
+/* Helpful classes
+------------------------------*/
+.stretch {
+  /* fill row */
+  display: block;
+  width: 100%;
+  align-self: stretch; }
+
+.vcenter {
+  /* vertically center */
+  display: flex;
+  align-items: center; }
+
+.hcenter {
+  /* horizontally center */
+  display: flex;
+  justify-content: center; }
+
+.pull-left {
+  /* pull div left of parent */
+  align-self: flex-start;
+  margin-right: auto; }
+
+.pull-right {
+  /* pull right of parent */
+  align-self: flex-end;
+  margin-left: auto; }
+
+.circular {
+  border-radius: 50%;
+  overflow: hidden; }
+
+.vspacer {
+  height: 1px;
+  padding-top: 1rem;
+  width: 100%; }
+
+.hspacer {
+  height: 1px;
+  padding-left: 1rem;
+  display: inline-block; }
+
+.tal {
+  text-align: left; }
+
+.tar {
+  text-align: right; }
+
+.tac {
+  text-align: center; }
+
+.nm {
+  margin: 0 !important; }
+
+.np {
+  padding: 0 0 0 0 !important; }
+
+.nav * {
+  display: inline-block;
+  padding-right: 1rem; }
+  .nav *:last-child {
+    padding-right: 0; }
+
+.bl {
+  align-items: baseline !important; }
+
+/* Internal positioning
+------------------------------*/
+.relative {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: -0.5rem !important; }
+
+.internal {
+  /* absolute positioning made easy */
+  position: absolute;
+  margin: auto;
+  top: 0;
+  /* slight bugfix */ }
+
+.internal.hcenter {
+  left: 0;
+  right: 0; }
+
+.internal.vcenter {
+  top: 0;
+  bottom: 0; }
+
+.internal.left {
+  left: 0;
+  top: 0; }
+
+/* set top:0 to prevent overflow; */
+.internal.right {
+  right: 0;
+  top: 0; }
+
+.internal.bottom {
+  bottom: 0;
+  top: auto; }
+
+/* reset top */
+.internal.top {
+  top: 0; }
+
+/* Font sizing
+------------------------------*/
+h1 {
+  font-size: calc(3rem + 1vmin); }
+
+h2 {
+  font-size: calc(2.5rem + 1vmin); }
+
+h3 {
+  font-size: calc(2rem + 1vmin); }
+
+h4 {
+  font-size: calc(1.5rem + 1vmin); }
+
+h5 {
+  font-size: calc(1rem + 1vmin); }
+
+h6 {
+  font-size: calc(0.5rem + 1vmin); }
+
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+  margin: 0;
+  margin-bottom: 0.5rem;
+  max-width: 100%; }
+  h1:last-child, h2:last-child, h3:last-child, h4:last-child, h5:last-child, h6:last-child {
+    margin-bottom: 0; }
+
+p {
+  margin: 0;
+  margin-bottom: 0.5rem;
+  background-color: transparent;
+  line-height: 1.5; }
+
+/* Responsive sizes
+------------------------------*/
+.col-1 {
+  width: 8.33333%; }
+
+.col-2 {
+  width: 16.66666%; }
+
+.col-3 {
+  width: 25%; }
+
+.col-4 {
+  width: 33.33333%; }
+
+.col-5 {
+  width: 41.66667%; }
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33333%; }
+
+.col-8 {
+  width: 66.66666%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33333%; }
+
+.col-11 {
+  width: 91.66667%; }
+
+.col-12 {
+  width: 100%; }
+
+.container:after,
+.row:after,
+.column:after {
+  content: "";
+  display: table;
+  clear: both; }
