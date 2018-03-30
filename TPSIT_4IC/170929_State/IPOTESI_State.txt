@@ -1,7 +1,0 @@
-Il thread inizializzati accedono allo stato new , al richiamo del metodo .start(); si sposta nello stato READY
-alla quale la schedular decide di prendere il thread (prende prima quelli in base alla convenienienza) e di spostarlo nello stato RUNNING
-Il nostro thread durante lo stato RUNNING puo accedere a tre stati diversi "WAITING" "TIMED WAITING" E "BLOCKED"
-col metodo td.join(); il nostro thread va in attesa fino a quando il Thread td non va nello stato TERMINATED (ovvero ha finito il metodo run(); o é stato stoppato)
-per stampare lo stado del metodo in attesa bloccato nel metodo join , non ho fatto altro che creare una classe osservatore che implementa un'interfaccia :
-Osservatore che permette di accedere a metodi che concedono di modificare l'oggetto da osservare e metodi che permettono di stampare l'aggiornamento;
-Mentre l'intefaccia Osserato che va data alla classe che viene osservato che permette di impostare da chi farsi osservare, o notificare l'eventuale aggiornamento.
